@@ -19,6 +19,7 @@ class UnsplashAPIService {
         }
         
         let task = URLSession.shared.dataTask(with: url) { data, response, error in
+            print(url)
             if let data = data {
                 do {
                     let result = try JSONDecoder().decode(SearchResult.self, from: data)
