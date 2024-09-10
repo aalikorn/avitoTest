@@ -1,48 +1,13 @@
 //
-//  ViewController.swift
+//  SearchViewController+CollectionView.swift
 //  avitoTest
 //
-//  Created by Даша Николаева on 07.09.2024.
+//  Created by Даша Николаева on 10.09.2024.
 //
 
+import Foundation
+
 import UIKit
-
-class SearchViewController: UIViewController {
-    
-    let searchViewModel = SearchViewModel()
-    var imagesCollectionView: UICollectionView!
-    var searchController = UISearchController()
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        configureSearchController()
-        configureCollectionView()
-        imagesCollectionView.register(MediaItemCollectionViewCell.self, forCellWithReuseIdentifier: "MediaItemCell")
-        bindViewModel()
-        view.backgroundColor = .white
-    }
-    
-    func bindViewModel() {
-       searchViewModel.searchResults.bind { [weak self] _ in
-           self?.imagesCollectionView.reloadData()
-       }
-   }
-}
-
-
-extension SearchViewController: UISearchBarDelegate {
-    func configureSearchController() {
-        searchController = UISearchController(searchResultsController: nil)
-        searchController.searchBar.delegate = self
-        navigationItem.searchController = searchController
-    }
-    
-    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
-        if let query = searchBar.text, !query.isEmpty {
-            searchViewModel.performSearch(query)
-        }
-    }
-}
 
 extension SearchViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func configureCollectionView() {
@@ -51,16 +16,16 @@ extension SearchViewController: UICollectionViewDelegate, UICollectionViewDataSo
            layout.minimumInteritemSpacing = 10
            
            imagesCollectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
-           imagesCollectionView.translatesAutoresizingMaskIntoConstraints = false
            imagesCollectionView.dataSource = self
            imagesCollectionView.delegate = self
            view.addSubview(imagesCollectionView)
+           imagesCollectionView.translatesAutoresizingMaskIntoConstraints = false
            
            NSLayoutConstraint.activate([
                imagesCollectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
                imagesCollectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10),
-               imagesCollectionView.topAnchor.constraint(equalTo: view.topAnchor, constant: 10),
-               imagesCollectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -10)
+               imagesCollectionView.topAnchor.constraint(equalTo: view.topAnchor, constant: 120),
+               imagesCollectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -30)
            ])
     }
     
@@ -104,4 +69,10 @@ extension SearchViewController: UICollectionViewDelegate, UICollectionViewDataSo
             let itemHeight: CGFloat = itemWidth * 1.1
             return CGSize(width: itemWidth, height: itemHeight)
         }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let item = searchViewModel.searchResults.value[indexPath.row]
+        var imageInfoViewController = ImageInfoViewController()
+        navigationController?.pushViewController(imageInfoViewController, animated: true)
+    }
 }
