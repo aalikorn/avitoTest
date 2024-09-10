@@ -17,6 +17,7 @@
 		BC35B7F22C8D8621007BB09A /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC35B7F12C8D8621007BB09A /* SearchViewModel.swift */; };
 		BC35B7F52C8D8947007BB09A /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC35B7F42C8D8947007BB09A /* Observable.swift */; };
 		BC35B7F72C8DA287007BB09A /* MediaItemCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC35B7F62C8DA287007BB09A /* MediaItemCollectionViewCell.swift */; };
+		BC35B7FA2C9044B6007BB09A /* ImageCacheManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC35B7F92C9044B6007BB09A /* ImageCacheManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		BC35B7F12C8D8621007BB09A /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
 		BC35B7F42C8D8947007BB09A /* Observable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
 		BC35B7F62C8DA287007BB09A /* MediaItemCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaItemCollectionViewCell.swift; sourceTree = "<group>"; };
+		BC35B7F92C9044B6007BB09A /* ImageCacheManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCacheManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +109,7 @@
 			isa = PBXGroup;
 			children = (
 				BC35B7F42C8D8947007BB09A /* Observable.swift */,
+				BC35B7F92C9044B6007BB09A /* ImageCacheManager.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -183,6 +186,7 @@
 			files = (
 				BC35B7F22C8D8621007BB09A /* SearchViewModel.swift in Sources */,
 				BC35B7F02C8C64A5007BB09A /* UnsplashAPIService.swift in Sources */,
+				BC35B7FA2C9044B6007BB09A /* ImageCacheManager.swift in Sources */,
 				BC35B7DB2C8C5D42007BB09A /* SearchViewController.swift in Sources */,
 				BC35B7F52C8D8947007BB09A /* Observable.swift in Sources */,
 				BC35B7EE2C8C6096007BB09A /* UnsplashModel.swift in Sources */,

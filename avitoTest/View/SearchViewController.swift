@@ -71,19 +71,25 @@ extension SearchViewController: UICollectionViewDelegate, UICollectionViewDataSo
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MediaItemCell", for: indexPath) as! MediaItemCollectionViewCell
            let item = searchViewModel.searchResults.value[indexPath.row]
-           if let imageURL = URL(string: item.urls.full) {
-               URLSession.shared.dataTask(with: imageURL) { data, _, _ in
-                   if let data = data {
-                       if let image = UIImage(data: data) {
-                           DispatchQueue.main.async {
-                               if collectionView.indexPath(for: cell) == indexPath {
-                                   cell.imageView.image = image
-                               }
-                           }
-                       }
-                   }
-               }.resume()
-           }
+        if let imageURL = URL(string: item.urls.full) {
+            let cacheKey = item.urls.full
+            if let cachedImage = ImageCacheManager.shared.image(forKey: cacheKey) {
+                cell.imageView.image = cachedImage
+            } else {
+                URLSession.shared.dataTask(with: imageURL) { data, _, _ in
+                    if let data = data {
+                        if let image = UIImage(data: data) {
+                            ImageCacheManager.shared.setImage(image, forKey: cacheKey)
+                            DispatchQueue.main.async {
+                                if collectionView.indexPath(for: cell) == indexPath {
+                                    cell.imageView.image = image
+                                }
+                            }
+                        }
+                    }
+                }.resume()
+            }
+        }
            cell.authorLabel.text = item.user.username
            cell.descriptionLabel.text = item.description
            
