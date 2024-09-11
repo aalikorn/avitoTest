@@ -21,6 +21,8 @@
 		BC35B7FF2C906643007BB09A /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC35B7FE2C906643007BB09A /* SearchViewController.swift */; };
 		BC35B8012C90667A007BB09A /* SearchViewController+SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC35B8002C90667A007BB09A /* SearchViewController+SearchBar.swift */; };
 		BC35B8032C9066B8007BB09A /* SearchViewController+CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC35B8022C9066B8007BB09A /* SearchViewController+CollectionView.swift */; };
+		BCBE563B2C92060A0053BF9B /* ImageInfoViewController+ShareSaveButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCBE563A2C92060A0053BF9B /* ImageInfoViewController+ShareSaveButton.swift */; };
+		BCBE563D2C9206910053BF9B /* ImageSavedNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCBE563C2C9206910053BF9B /* ImageSavedNotification.swift */; };
 		BCBE6DBE2C9096AE001E2770 /* SearchViewControler+SearchHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCBE6DBD2C9096AE001E2770 /* SearchViewControler+SearchHistory.swift */; };
 /* End PBXBuildFile section */
 
@@ -41,6 +43,8 @@
 		BC35B7FE2C906643007BB09A /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		BC35B8002C90667A007BB09A /* SearchViewController+SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SearchViewController+SearchBar.swift"; sourceTree = "<group>"; };
 		BC35B8022C9066B8007BB09A /* SearchViewController+CollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SearchViewController+CollectionView.swift"; sourceTree = "<group>"; };
+		BCBE563A2C92060A0053BF9B /* ImageInfoViewController+ShareSaveButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ImageInfoViewController+ShareSaveButton.swift"; sourceTree = "<group>"; };
+		BCBE563C2C9206910053BF9B /* ImageSavedNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSavedNotification.swift; sourceTree = "<group>"; };
 		BCBE6DBD2C9096AE001E2770 /* SearchViewControler+SearchHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SearchViewControler+SearchHistory.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -138,6 +142,8 @@
 			isa = PBXGroup;
 			children = (
 				BC35B7FB2C905E95007BB09A /* ImageInfoViewController.swift */,
+				BCBE563A2C92060A0053BF9B /* ImageInfoViewController+ShareSaveButton.swift */,
+				BCBE563C2C9206910053BF9B /* ImageSavedNotification.swift */,
 			);
 			path = ImageInfoViewController;
 			sourceTree = "<group>";
@@ -221,7 +227,9 @@
 				BCBE6DBE2C9096AE001E2770 /* SearchViewControler+SearchHistory.swift in Sources */,
 				BC35B7FF2C906643007BB09A /* SearchViewController.swift in Sources */,
 				BC35B7D72C8C5D42007BB09A /* AppDelegate.swift in Sources */,
+				BCBE563B2C92060A0053BF9B /* ImageInfoViewController+ShareSaveButton.swift in Sources */,
 				BC35B7F72C8DA287007BB09A /* MediaItemCollectionViewCell.swift in Sources */,
+				BCBE563D2C9206910053BF9B /* ImageSavedNotification.swift in Sources */,
 				BC35B8032C9066B8007BB09A /* SearchViewController+CollectionView.swift in Sources */,
 				BC35B8012C90667A007BB09A /* SearchViewController+SearchBar.swift in Sources */,
 				BC35B7D92C8C5D42007BB09A /* SceneDelegate.swift in Sources */,
