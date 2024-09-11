@@ -21,6 +21,7 @@ class SearchViewController: UIViewController {
         configureCollectionView()
         setupHistoryTableView()
         bindViewModel()
+        searchViewModel.performSearch()
         view.backgroundColor = .white
     }
     

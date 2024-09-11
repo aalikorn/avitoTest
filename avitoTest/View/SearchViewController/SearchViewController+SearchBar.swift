@@ -14,6 +14,7 @@ extension SearchViewController: UISearchBarDelegate {
         searchController.searchBar.delegate = self
         navigationItem.searchController = searchController
         navigationItem.hidesSearchBarWhenScrolling = false
+        searchController.searchBar.placeholder = "Введите запрос"
     }
     
     func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {

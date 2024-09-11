@@ -10,22 +10,41 @@ import Foundation
 class UnsplashAPIService {
     static let shared = UnsplashAPIService()
     
-    func search(query: String, complition: @escaping (Result<[MediaItem], Error>) -> Void) {
+    func search(query: String? = nil, complition: @escaping (Result<[MediaItem], Error>) -> Void) {
         let ACCESS_KEY = "qhH2W-AohX_EzWkeilQTB16kAtsFvIQZZOlomYS_-gI"
         
-        guard let url = URL(string: "https://api.unsplash.com/search/photos?query=\(query)&client_id=\(ACCESS_KEY)") else {
-            print("error in producing url")
-            return
+        var url: URL
+        
+        if let query = query {
+            guard let urlStr = URL(string: "https://api.unsplash.com/search/photos?query=\(query)&per_page=30&client_id=\(ACCESS_KEY)") else {
+                print("error in producing url")
+                return
+            }
+            url = urlStr
+        } else {
+            guard let urlStr = URL(string: "https://api.unsplash.com/photos/random?count=30&client_id=\(ACCESS_KEY)") else {
+                print("error in producing url")
+                return
+            }
+            url = urlStr
         }
         
         let task = URLSession.shared.dataTask(with: url) { data, response, error in
             print(url)
             if let data = data {
                 do {
-                    let result = try JSONDecoder().decode(SearchResult.self, from: data)
-                    DispatchQueue.main.async {
-                        complition(.success(result.results))
+                    if let query = query {
+                        let result = try JSONDecoder().decode(SearchResult.self, from: data)
+                        DispatchQueue.main.async {
+                            complition(.success(result.results))
+                        }
+                    } else {
+                        let result = try JSONDecoder().decode([MediaItem].self, from: data)
+                        DispatchQueue.main.async {
+                            complition(.success(result))
+                        }
                     }
+                    
                 } catch {
                     complition(.failure(error))
                 }

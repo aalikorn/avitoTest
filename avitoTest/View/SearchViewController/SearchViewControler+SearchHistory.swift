@@ -54,7 +54,7 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
     func updateTableViewHeight() {
         historyHeightAnchor.isActive = false
         let numberOfRows = searchViewModel.searchHistory.count
-        let rowHeight: CGFloat = 44
+        let rowHeight: CGFloat = 48
         let totalHeight = CGFloat(numberOfRows) * rowHeight
         historyHeightAnchor = self.historyTableView.heightAnchor.constraint(equalToConstant: totalHeight)
         historyHeightAnchor.isActive = true

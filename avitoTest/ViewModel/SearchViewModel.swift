@@ -14,8 +14,10 @@ class SearchViewModel {
         return userDefaults.array(forKey: "SearchHistory") as? [String] ?? []
     }
     
-    func performSearch(_ query: String) {
-        saveToHistory(query)
+    func performSearch(_ query: String? = nil) {
+        if let query = query {
+            saveToHistory(query)
+        }
         UnsplashAPIService.shared.search(query: query) { result in
             switch result {
             case .success(let mediaItems):

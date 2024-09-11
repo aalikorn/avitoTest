@@ -38,8 +38,8 @@ extension SearchViewController: UICollectionViewDelegate, UICollectionViewDataSo
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MediaItemCell", for: indexPath) as! MediaItemCollectionViewCell
         cell.imageView.image = UIImage(named: "Placeholder")
         let item = searchViewModel.searchResults.value[indexPath.row]
-        if let imageURL = URL(string: item.urls.full) {
-            let cacheKey = item.urls.full
+        if let imageURL = URL(string: item.urls.small) {
+            let cacheKey = item.urls.small
             if let cachedImage = ImageCacheManager.shared.image(forKey: cacheKey) {
                 cell.imageView.image = cachedImage
             } else {
@@ -76,7 +76,7 @@ extension SearchViewController: UICollectionViewDelegate, UICollectionViewDataSo
         let item = searchViewModel.searchResults.value[indexPath.row]
         let imageInfoViewController = ImageInfoViewController()
         imageInfoViewController.author = item.user
-        imageInfoViewController.imageURL = item.urls.full
+        imageInfoViewController.imageURL = item.urls.regular
         imageInfoViewController.imageDescription = item.description
         navigationController?.pushViewController(imageInfoViewController, animated: true)
     }

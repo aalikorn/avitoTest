@@ -20,7 +20,7 @@ struct MediaItem: Codable {
 
 struct Urls: Codable {
     let small: String
-    let full: String
+    let regular: String
 }
 
 struct User: Codable {

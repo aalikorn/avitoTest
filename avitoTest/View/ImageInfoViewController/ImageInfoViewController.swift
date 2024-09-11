@@ -29,7 +29,9 @@ class ImageInfoViewController: UIViewController {
                 imageView.image = cachedImage
             } else {
                 if let url = URL(string: imageURL) {
+                    print(url)
                     URLSession.shared.dataTask(with: url) { data, _, _ in
+                        print(1)
                         if let data = data, let image = UIImage(data: data) {
                             DispatchQueue.main.async {
                                 self.imageView.image = image
