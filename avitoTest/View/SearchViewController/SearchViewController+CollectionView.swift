@@ -27,6 +27,7 @@ extension SearchViewController: UICollectionViewDelegate, UICollectionViewDataSo
                imagesCollectionView.topAnchor.constraint(equalTo: view.topAnchor, constant: 120),
                imagesCollectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -30)
            ])
+        imagesCollectionView.register(MediaItemCollectionViewCell.self, forCellWithReuseIdentifier: "MediaItemCell")
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -34,8 +35,9 @@ extension SearchViewController: UICollectionViewDelegate, UICollectionViewDataSo
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-           let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MediaItemCell", for: indexPath) as! MediaItemCollectionViewCell
-           let item = searchViewModel.searchResults.value[indexPath.row]
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MediaItemCell", for: indexPath) as! MediaItemCollectionViewCell
+        cell.imageView.image = UIImage(named: "Placeholder")
+        let item = searchViewModel.searchResults.value[indexPath.row]
         if let imageURL = URL(string: item.urls.full) {
             let cacheKey = item.urls.full
             if let cachedImage = ImageCacheManager.shared.image(forKey: cacheKey) {
@@ -72,7 +74,10 @@ extension SearchViewController: UICollectionViewDelegate, UICollectionViewDataSo
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let item = searchViewModel.searchResults.value[indexPath.row]
-        var imageInfoViewController = ImageInfoViewController()
+        let imageInfoViewController = ImageInfoViewController()
+        imageInfoViewController.author = item.user
+        imageInfoViewController.imageURL = item.urls.full
+        imageInfoViewController.imageDescription = item.description
         navigationController?.pushViewController(imageInfoViewController, animated: true)
     }
 }
