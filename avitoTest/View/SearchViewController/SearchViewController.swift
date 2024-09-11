@@ -14,6 +14,7 @@ class SearchViewController: UIViewController {
     var searchController = UISearchController()
     let historyTableView = UITableView()
     var historyHeightAnchor = NSLayoutConstraint()
+    var filteredHistory: [String] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()

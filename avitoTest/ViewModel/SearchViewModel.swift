@@ -30,8 +30,11 @@ class SearchViewModel {
     
     private func saveToHistory(_ query: String) {
         var history = searchHistory
-        history.insert(query, at: 0)
         if history.count > 5 { history.removeLast() }
+        if let index = history.firstIndex(of: query) {
+            history.remove(at: index)
+        }
+        history.insert(query, at: 0)
         userDefaults.set(history, forKey: "SearchHistory")
     }
 }

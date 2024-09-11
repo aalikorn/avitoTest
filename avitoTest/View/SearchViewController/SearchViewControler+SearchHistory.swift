@@ -34,17 +34,17 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return searchViewModel.searchHistory.count
+        return filteredHistory.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "historyCell", for: indexPath)
-        cell.textLabel?.text = searchViewModel.searchHistory[indexPath.row]
+        cell.textLabel?.text = filteredHistory[indexPath.row]
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let query = searchViewModel.searchHistory[indexPath.row]
+        let query = filteredHistory[indexPath.row]
         searchController.searchBar.text = query
         searchViewModel.performSearch(query)
         historyTableView.isHidden = true
@@ -53,7 +53,7 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
     
     func updateTableViewHeight() {
         historyHeightAnchor.isActive = false
-        let numberOfRows = searchViewModel.searchHistory.count
+        let numberOfRows = filteredHistory.count
         let rowHeight: CGFloat = 48
         let totalHeight = CGFloat(numberOfRows) * rowHeight
         historyHeightAnchor = self.historyTableView.heightAnchor.constraint(equalToConstant: totalHeight)
@@ -72,8 +72,19 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
             border.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             border.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
-        
-        
+    }
+    
+    func filterSearchHistory(_ query: String) {
+        let history = UserDefaults.standard.stringArray(forKey: "SearchHistory") ?? []
+        if query.isEmpty {
+            filteredHistory = history
+            historyTableView.reloadData()
+            historyTableView.isHidden = false
+        } else {
+            filteredHistory = history.filter { $0.range(of: query, options: .caseInsensitive) != nil }
+            historyTableView.reloadData()
+            historyTableView.isHidden = false
+        }
     }
 }
 
