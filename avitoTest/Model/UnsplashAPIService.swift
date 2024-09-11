@@ -33,7 +33,7 @@ class UnsplashAPIService {
             print(url)
             if let data = data {
                 do {
-                    if let query = query {
+                    if query != nil {
                         let result = try JSONDecoder().decode(SearchResult.self, from: data)
                         DispatchQueue.main.async {
                             complition(.success(result.results))
