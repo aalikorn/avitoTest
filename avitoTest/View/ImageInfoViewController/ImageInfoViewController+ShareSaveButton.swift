@@ -14,7 +14,7 @@ extension ImageInfoViewController {
         NSLayoutConstraint.activate([
             shareButton.topAnchor.constraint(equalTo: blueSubview.topAnchor, constant: 10),
             shareButton.leadingAnchor.constraint(equalTo: blueSubview.leadingAnchor, constant: 10),
-            shareButton.widthAnchor.constraint(equalToConstant: 170),
+            shareButton.widthAnchor.constraint(equalToConstant: view.frame.width * 0.43),
             shareButton.bottomAnchor.constraint(equalTo: blueSubview.bottomAnchor, constant: -10)
         ])
         shareButton.layer.cornerRadius = 10
@@ -32,7 +32,7 @@ extension ImageInfoViewController {
         NSLayoutConstraint.activate([
             saveButton.topAnchor.constraint(equalTo: blueSubview.topAnchor, constant: 10),
             saveButton.trailingAnchor.constraint(equalTo: blueSubview.trailingAnchor, constant: -10),
-            saveButton.widthAnchor.constraint(equalToConstant: 170),
+            saveButton.widthAnchor.constraint(equalToConstant: view.frame.width * 0.43),
             saveButton.bottomAnchor.constraint(equalTo: blueSubview.bottomAnchor, constant: -10)
         ])
         saveButton.layer.cornerRadius = 10

@@ -10,7 +10,6 @@
 		BC35B7D72C8C5D42007BB09A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC35B7D62C8C5D42007BB09A /* AppDelegate.swift */; };
 		BC35B7D92C8C5D42007BB09A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC35B7D82C8C5D42007BB09A /* SceneDelegate.swift */; };
 		BC35B7E02C8C5D43007BB09A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BC35B7DF2C8C5D43007BB09A /* Assets.xcassets */; };
-		BC35B7E32C8C5D43007BB09A /* Base in Resources */ = {isa = PBXBuildFile; fileRef = BC35B7E22C8C5D43007BB09A /* Base */; };
 		BC35B7EE2C8C6096007BB09A /* UnsplashModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC35B7ED2C8C6096007BB09A /* UnsplashModel.swift */; };
 		BC35B7F02C8C64A5007BB09A /* UnsplashAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC35B7EF2C8C64A5007BB09A /* UnsplashAPIService.swift */; };
 		BC35B7F22C8D8621007BB09A /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC35B7F12C8D8621007BB09A /* SearchViewModel.swift */; };
@@ -23,6 +22,7 @@
 		BC35B8032C9066B8007BB09A /* SearchViewController+CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC35B8022C9066B8007BB09A /* SearchViewController+CollectionView.swift */; };
 		BCBE563B2C92060A0053BF9B /* ImageInfoViewController+ShareSaveButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCBE563A2C92060A0053BF9B /* ImageInfoViewController+ShareSaveButton.swift */; };
 		BCBE563D2C9206910053BF9B /* ImageSavedNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCBE563C2C9206910053BF9B /* ImageSavedNotification.swift */; };
+		BCBE563F2C9302B60053BF9B /* LaunchScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCBE563E2C9302B60053BF9B /* LaunchScreenViewController.swift */; };
 		BCBE6DBE2C9096AE001E2770 /* SearchViewControler+SearchHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCBE6DBD2C9096AE001E2770 /* SearchViewControler+SearchHistory.swift */; };
 /* End PBXBuildFile section */
 
@@ -31,7 +31,6 @@
 		BC35B7D62C8C5D42007BB09A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BC35B7D82C8C5D42007BB09A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		BC35B7DF2C8C5D43007BB09A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		BC35B7E22C8C5D43007BB09A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BC35B7E42C8C5D43007BB09A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BC35B7ED2C8C6096007BB09A /* UnsplashModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnsplashModel.swift; sourceTree = "<group>"; };
 		BC35B7EF2C8C64A5007BB09A /* UnsplashAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnsplashAPIService.swift; sourceTree = "<group>"; };
@@ -45,6 +44,7 @@
 		BC35B8022C9066B8007BB09A /* SearchViewController+CollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SearchViewController+CollectionView.swift"; sourceTree = "<group>"; };
 		BCBE563A2C92060A0053BF9B /* ImageInfoViewController+ShareSaveButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ImageInfoViewController+ShareSaveButton.swift"; sourceTree = "<group>"; };
 		BCBE563C2C9206910053BF9B /* ImageSavedNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSavedNotification.swift; sourceTree = "<group>"; };
+		BCBE563E2C9302B60053BF9B /* LaunchScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenViewController.swift; sourceTree = "<group>"; };
 		BCBE6DBD2C9096AE001E2770 /* SearchViewControler+SearchHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SearchViewControler+SearchHistory.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -85,7 +85,6 @@
 				BC35B7D62C8C5D42007BB09A /* AppDelegate.swift */,
 				BC35B7D82C8C5D42007BB09A /* SceneDelegate.swift */,
 				BC35B7DF2C8C5D43007BB09A /* Assets.xcassets */,
-				BC35B7E12C8C5D43007BB09A /* LaunchScreen.storyboard */,
 				BC35B7E42C8C5D43007BB09A /* Info.plist */,
 			);
 			path = avitoTest;
@@ -105,6 +104,7 @@
 			children = (
 				BC35B8042C90679B007BB09A /* ImageInfoViewController */,
 				BC35B7FD2C906251007BB09A /* SearchViewController */,
+				BCBE563E2C9302B60053BF9B /* LaunchScreenViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -207,7 +207,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				BC35B7E02C8C5D43007BB09A /* Assets.xcassets in Resources */,
-				BC35B7E32C8C5D43007BB09A /* Base in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -228,6 +227,7 @@
 				BC35B7FF2C906643007BB09A /* SearchViewController.swift in Sources */,
 				BC35B7D72C8C5D42007BB09A /* AppDelegate.swift in Sources */,
 				BCBE563B2C92060A0053BF9B /* ImageInfoViewController+ShareSaveButton.swift in Sources */,
+				BCBE563F2C9302B60053BF9B /* LaunchScreenViewController.swift in Sources */,
 				BC35B7F72C8DA287007BB09A /* MediaItemCollectionViewCell.swift in Sources */,
 				BCBE563D2C9206910053BF9B /* ImageSavedNotification.swift in Sources */,
 				BC35B8032C9066B8007BB09A /* SearchViewController+CollectionView.swift in Sources */,
@@ -237,17 +237,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXVariantGroup section */
-		BC35B7E12C8C5D43007BB09A /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				BC35B7E22C8C5D43007BB09A /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		BC35B7E52C8C5D43007BB09A /* Debug */ = {

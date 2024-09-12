@@ -9,6 +9,7 @@ import Foundation
 
 class SearchViewModel {
     var searchResults: Observable<[MediaItem]> = Observable([])
+    var error: Observable<Bool> = Observable(false)
     var userDefaults = UserDefaults.standard
     var searchHistory: [String] {
         return userDefaults.array(forKey: "SearchHistory") as? [String] ?? []
@@ -21,8 +22,10 @@ class SearchViewModel {
         UnsplashAPIService.shared.search(query: query) { result in
             switch result {
             case .success(let mediaItems):
+                self.error.value = false
                 self.searchResults.value = mediaItems
             case .failure(let error):
+                self.error.value = true
                 print("error: \(error)")
             }
         }

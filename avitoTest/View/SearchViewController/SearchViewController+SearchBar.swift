@@ -26,8 +26,9 @@ extension SearchViewController: UISearchBarDelegate {
 
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
         if searchViewModel.searchHistory.count != 0 {
-            updateTableViewHeight()
             filterSearchHistory("")
+            updateTableViewHeight()
+            print(self.filteredHistory)
             self.historyTableView.isHidden = false
             self.historyTableView.reloadData()
         }
