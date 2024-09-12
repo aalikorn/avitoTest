@@ -50,11 +50,9 @@ extension SearchViewController: UICollectionViewDelegate, UICollectionViewDataSo
                             ImageCacheManager.shared.setImage(image, forKey: cacheKey)
                             DispatchQueue.main.async {
                                 if collectionView.indexPath(for: cell) == indexPath {
-                                    if cell.imageView.image == nil {
-                                        cell.imageView.image = image
-                                        cell.setNeedsLayout()
-                                        cell.layoutIfNeeded()
-                                    }
+                                    cell.imageView.image = image
+                                    cell.setNeedsLayout()
+                                    cell.layoutIfNeeded()
                                 }
                             }
                         }

@@ -7,6 +7,11 @@
 
 import UIKit
 
+enum ImageSaveResult {
+    case success
+    case failure
+}
+
 extension ImageInfoViewController {
     func configureShareButton() {
         blueSubview.addSubview(shareButton)
@@ -74,14 +79,16 @@ extension ImageInfoViewController {
             print("Изображение не найдено")
             return
         }
+        
         UIImageWriteToSavedPhotosAlbum(image, self, #selector(image(_:didFinishSavingWithError:contextInfo:)), nil)
     }
     
     @objc func image(_ image: UIImage, didFinishSavingWithError error: NSError?, contextInfo: UnsafeRawPointer) {
         if let error = error {
+            showNotification(.failure)
             print("Ошибка сохранения изображения: \(error.localizedDescription)")
         } else {
-            showNotification()
+            showNotification(.success)
         }
     }
 }

@@ -55,6 +55,7 @@ class ImageInfoViewController: UIViewController {
     
     private func loadImage() {
         if let imageURL = imageURL {
+            imageView.image = UIImage(named: "Placeholder")
             if let cachedImage = ImageCacheManager.shared.image(forKey: imageURL) {
                 imageView.image = cachedImage
             } else {
@@ -91,8 +92,13 @@ class ImageInfoViewController: UIViewController {
     
     func configureAuthorLabel() {
         authorLabel.translatesAutoresizingMaskIntoConstraints = false
-        authorLabel.text = author?.username
-        authorLabel.font = .systemFont(ofSize: 15)
+        if let author = author {
+            authorLabel.font = .systemFont(ofSize: 15)
+            authorLabel.text = "автор: \(author.username)"
+        } else {
+            showAlertError()
+            print(2)
+        }
     }
     
     func showAlertError() {

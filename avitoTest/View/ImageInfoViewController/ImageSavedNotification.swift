@@ -15,7 +15,7 @@ extension ImageInfoViewController {
             notificationView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 50),
             notificationView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 30),
             notificationView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -30),
-            notificationView.heightAnchor.constraint(equalToConstant: 40)
+            notificationView.heightAnchor.constraint(equalToConstant: 70)
         ])
         notificationView.layer.cornerRadius = 10
         let lightBlue = UIColor(red: 225/255.0, green: 243/255.0, blue: 252/255.0, alpha: 1.0)
@@ -29,13 +29,20 @@ extension ImageInfoViewController {
         notificationLabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
                notificationLabel.centerXAnchor.constraint(equalTo: notificationView.centerXAnchor),
-               notificationLabel.centerYAnchor.constraint(equalTo: notificationView.centerYAnchor)
+               notificationLabel.centerYAnchor.constraint(equalTo: notificationView.centerYAnchor),
+               notificationLabel.widthAnchor.constraint(equalToConstant: 250)
            ])
-        notificationLabel.text = "Изображение сохранено"
         notificationLabel.textColor = .black
+        notificationLabel.numberOfLines = 0
+        notificationLabel.textAlignment = .center
     }
     
-    func showNotification() {
+    func showNotification(_ result: ImageSaveResult) {
+        switch result {
+        case .failure: notificationLabel.text = "Пожалуйста, разрешите приложению доступ к галерее в настройках"
+        case .success: notificationLabel.text = "Изображение сохранено"
+        }
+        
         UIView.animate(withDuration: 0.5, animations: {
             self.notificationView.alpha = 0.9
         }) { _ in
