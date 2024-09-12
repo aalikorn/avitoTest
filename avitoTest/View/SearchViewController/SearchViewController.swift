@@ -7,6 +7,11 @@
 
 import UIKit
 
+enum LayoutType {
+    case grid
+    case list
+}
+
 class SearchViewController: UIViewController {
     
     let searchViewModel = SearchViewModel()
@@ -19,7 +24,29 @@ class SearchViewController: UIViewController {
     var noResultsLabel = UILabel()
     var loadingLabel = UILabel()
     var isLoading = true
+    var layoutType: LayoutType = .grid {
+        didSet {
+            imagesCollectionView.reloadData()
+        }
+    }
     
+    func configureNavigationBar() {
+        let toggleLayoutButton = UIBarButtonItem(
+            title: "Отображать списком",
+            style: .plain,
+            target: self,
+            action: #selector(toggleLayout)
+        )
+        navigationItem.rightBarButtonItem = toggleLayoutButton
+    }
+
+    @objc func toggleLayout() {
+        layoutType = (layoutType == .grid) ? .list : .grid
+        
+        let buttonTitle = (layoutType == .grid) ? "Отображать списком" : "Отображать сеткой"
+        navigationItem.rightBarButtonItem?.title = buttonTitle
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         configureSearchController()

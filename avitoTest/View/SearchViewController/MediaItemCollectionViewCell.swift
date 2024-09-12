@@ -22,6 +22,7 @@ class MediaItemCollectionViewCell: UICollectionViewCell {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textAlignment = .left
         label.font = UIFont.systemFont(ofSize: 14)
+        label.numberOfLines = 0
         return label
     }()
     
@@ -40,32 +41,57 @@ class MediaItemCollectionViewCell: UICollectionViewCell {
         
         imageView.layer.cornerRadius = 10
         imageView.layer.masksToBounds = true
-        
-        NSLayoutConstraint.activate([
-            imageView.topAnchor.constraint(equalTo: contentView.topAnchor),
-            imageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
-            imageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-            imageView.heightAnchor.constraint(equalToConstant: 150)
-        ])
-        
-        NSLayoutConstraint.activate([
-            descriptionLabel.topAnchor.constraint(equalTo: imageView.bottomAnchor),
-            descriptionLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
-            descriptionLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-            descriptionLabel.heightAnchor.constraint(equalToConstant: 20)
-        ])
-        
-        NSLayoutConstraint.activate([
-            authorLabel.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor),
-            authorLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
-            authorLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-            authorLabel.heightAnchor.constraint(equalToConstant: 20)
-        ])
     }
+    
+    func updateConstraintsForLayout(_ layoutType: LayoutType) {
+        NSLayoutConstraint.deactivate(imageView.constraints)
+        NSLayoutConstraint.deactivate(descriptionLabel.constraints)
+        NSLayoutConstraint.deactivate(authorLabel.constraints)
+        
+        if layoutType == .grid {
+            NSLayoutConstraint.activate([
+                imageView.topAnchor.constraint(equalTo: contentView.topAnchor),
+                imageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+                imageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+                imageView.heightAnchor.constraint(equalToConstant: 150),
+
+                descriptionLabel.topAnchor.constraint(equalTo: imageView.bottomAnchor),
+                descriptionLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+                descriptionLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+                descriptionLabel.heightAnchor.constraint(equalToConstant: 20),
+
+                authorLabel.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor),
+                authorLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+                authorLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+                authorLabel.heightAnchor.constraint(equalToConstant: 20)
+            ])
+        } else {
+            NSLayoutConstraint.activate([
+                imageView.topAnchor.constraint(equalTo: contentView.topAnchor),
+                imageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+                imageView.widthAnchor.constraint(equalToConstant: 150),
+                imageView.heightAnchor.constraint(equalToConstant: 150),
+
+                descriptionLabel.topAnchor.constraint(equalTo: contentView.topAnchor),
+                descriptionLabel.leadingAnchor.constraint(equalTo: imageView.trailingAnchor, constant: 10),
+                descriptionLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+                descriptionLabel.heightAnchor.constraint(equalToConstant: 130),
+
+                authorLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -5),
+                authorLabel.leadingAnchor.constraint(equalTo: imageView.trailingAnchor, constant: 10),
+                authorLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+                authorLabel.heightAnchor.constraint(equalToConstant: 15)
+            ])
+        }
+    }
+
     
     override func prepareForReuse() {
         super.prepareForReuse()
         imageView.image = nil
+        descriptionLabel.text = nil
+        authorLabel.text = nil
+        updateConstraintsForLayout(.grid)
     }
     
     override init(frame: CGRect) {

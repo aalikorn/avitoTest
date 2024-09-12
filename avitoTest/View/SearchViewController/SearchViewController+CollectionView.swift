@@ -5,9 +5,9 @@
 //  Created by Даша Николаева on 10.09.2024.
 //
 
-import Foundation
-
 import UIKit
+
+
 
 extension SearchViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func configureCollectionView() {
@@ -24,7 +24,7 @@ extension SearchViewController: UICollectionViewDelegate, UICollectionViewDataSo
            NSLayoutConstraint.activate([
                imagesCollectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
                imagesCollectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10),
-               imagesCollectionView.topAnchor.constraint(equalTo: view.topAnchor, constant: view.frame.height * 0.1),
+               imagesCollectionView.topAnchor.constraint(equalTo: view.topAnchor, constant: view.frame.height * 0.01),
                imagesCollectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
            ])
         imagesCollectionView.register(MediaItemCollectionViewCell.self, forCellWithReuseIdentifier: "MediaItemCell")
@@ -36,6 +36,7 @@ extension SearchViewController: UICollectionViewDelegate, UICollectionViewDataSo
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MediaItemCell", for: indexPath) as! MediaItemCollectionViewCell
+        cell.updateConstraintsForLayout(layoutType)
         cell.imageView.image = UIImage(named: "Placeholder")
         let item = searchViewModel.searchResults.value[indexPath.row]
         if let imageURL = URL(string: item.urls.regular) {
@@ -49,7 +50,11 @@ extension SearchViewController: UICollectionViewDelegate, UICollectionViewDataSo
                             ImageCacheManager.shared.setImage(image, forKey: cacheKey)
                             DispatchQueue.main.async {
                                 if collectionView.indexPath(for: cell) == indexPath {
-                                    cell.imageView.image = image
+                                    if cell.imageView.image == nil {
+                                        cell.imageView.image = image
+                                        cell.setNeedsLayout()
+                                        cell.layoutIfNeeded()
+                                    }
                                 }
                             }
                         }
@@ -64,13 +69,21 @@ extension SearchViewController: UICollectionViewDelegate, UICollectionViewDataSo
        }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let spacing: CGFloat = 10
+        switch (layoutType) {
+        case .grid:
             let numberOfColumns: CGFloat = 2
-            let spacing: CGFloat = 10
             let totalSpacing = (numberOfColumns - 1) * spacing + spacing * 2
             let itemWidth = (view.bounds.width - totalSpacing) / numberOfColumns
             let itemHeight: CGFloat = itemWidth * 1.1
             return CGSize(width: itemWidth, height: itemHeight)
+        case .list:
+            let itemWidth = view.bounds.width - spacing * 2
+            let itemHeight: CGFloat = itemWidth * 0.4
+            return CGSize(width: itemWidth, height: itemHeight)
         }
+           
+    }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let item = searchViewModel.searchResults.value[indexPath.row]
@@ -135,4 +148,5 @@ extension SearchViewController: UICollectionViewDelegate, UICollectionViewDataSo
             self.imagesCollectionView.isHidden = true
         }
     }
+    
 }
