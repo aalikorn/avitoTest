@@ -8,6 +8,8 @@
 import UIKit
 
 extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
+    
+    /// Sets up the history table view.
     func setupHistoryTableView() {
         view.addSubview(historyTableView)
         historyTableView.isHidden = true
@@ -32,6 +34,8 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
         historyTableView.delegate = self
         historyTableView.dataSource = self
     }
+    
+    // MARK: - UITableViewDataSource
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return filteredHistory.count

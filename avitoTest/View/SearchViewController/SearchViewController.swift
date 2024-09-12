@@ -7,6 +7,7 @@
 
 import UIKit
 
+// Represents types of content representation. Switching between them in the development yet :(
 enum LayoutType {
     case grid
     case list
@@ -26,10 +27,12 @@ class SearchViewController: UIViewController {
     var isLoading = true
     var layoutType: LayoutType = .grid {
         didSet {
+            // Reload the collection view when the layout type changes
             imagesCollectionView.reloadData()
         }
     }
     
+    /// Configures the navigation bar with a toggle layout button.
     func configureNavigationBar() {
         let toggleLayoutButton = UIBarButtonItem(
             title: "Отображать списком",
@@ -40,6 +43,7 @@ class SearchViewController: UIViewController {
         navigationItem.rightBarButtonItem = toggleLayoutButton
     }
 
+    /// Toggles between grid and list layout types.
     @objc func toggleLayout() {
         layoutType = (layoutType == .grid) ? .list : .grid
         
@@ -63,6 +67,7 @@ class SearchViewController: UIViewController {
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
         
+        // Ensure constraints for historyTableView are activated if searchBar is in view hierarchy
         if let searchBar = self.searchController.searchBar.superview {
             NSLayoutConstraint.activate([
                 self.historyTableView.topAnchor.constraint(equalTo: searchBar.bottomAnchor),
@@ -74,6 +79,7 @@ class SearchViewController: UIViewController {
         self.view.layoutIfNeeded()
     }
     
+    /// Binds the search results from the view model to update the UI.
     func bindViewModel() {
         searchViewModel.searchResults.bind { [weak self] _ in
             DispatchQueue.global(qos: .userInitiated).async {
@@ -87,6 +93,7 @@ class SearchViewController: UIViewController {
         }
     }
     
+    /// Binds error state from the view model to show error messages.
     func bindError() {
         searchViewModel.error.bind { [weak self] _ in
             DispatchQueue.main.async {
@@ -97,6 +104,7 @@ class SearchViewController: UIViewController {
         }
     }
     
+    /// Displays a loading label.
     func showLoading() {
         view.addSubview(loadingLabel)
         loadingLabel.translatesAutoresizingMaskIntoConstraints = false

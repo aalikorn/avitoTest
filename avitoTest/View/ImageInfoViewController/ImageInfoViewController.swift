@@ -7,8 +7,10 @@
 
 import UIKit
 
+/// A view controller that displays detailed information about an image, including the image itself, its description, and the author's details.
 class ImageInfoViewController: UIViewController {
     
+    // MARK: - Properties
     var imageURL: String?
     var imageDescription: String?
     var author: User?
@@ -30,6 +32,8 @@ class ImageInfoViewController: UIViewController {
         setupViews()
     }
     
+    // MARK: - ScrollView Setup
+    /// Adds and configures the scroll view, making sure it fills the entire view.
     private func setupScrollView() {
        view.addSubview(scrollView)
        scrollView.translatesAutoresizingMaskIntoConstraints = false
@@ -41,6 +45,8 @@ class ImageInfoViewController: UIViewController {
        ])
    }
     
+    // MARK: - Content View Setup
+        /// Sets up the content view within the scroll view and makes its width match the scroll view.
     private func setupContentView() {
        scrollView.addSubview(contentView)
        contentView.translatesAutoresizingMaskIntoConstraints = false
@@ -53,6 +59,8 @@ class ImageInfoViewController: UIViewController {
        ])
    }
     
+    // MARK: - Image Loading
+        /// Loads the image from the URL, using a placeholder if necessary and caching the loaded image.
     private func loadImage() {
         if let imageURL = imageURL {
             imageView.image = UIImage(named: "Placeholder")
@@ -76,6 +84,7 @@ class ImageInfoViewController: UIViewController {
         }
     }
     
+    // MARK: - UI Configuration
     func configureImageView() {
         loadImage()
         imageView.translatesAutoresizingMaskIntoConstraints = false
@@ -101,6 +110,8 @@ class ImageInfoViewController: UIViewController {
         }
     }
     
+    // MARK: - Error Handling
+        /// Displays an alert when an error occurs and pops the view controller on confirmation.
     func showAlertError() {
         let alert = UIAlertController(title: "Возникла ошибка :(", message: nil, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "ОК", style: .default, handler: { [weak self] _ in
@@ -109,6 +120,8 @@ class ImageInfoViewController: UIViewController {
         present(alert, animated: true, completion: nil)
     }
     
+    // MARK: - Setup Views and Constraints
+        /// Sets up and adds subviews, and activates constraints for the layout.
     func setupViews() {
         setupScrollView()
         setupContentView()

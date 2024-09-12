@@ -7,6 +7,8 @@
 
 import Foundation
 
+
+/// ViewModel that manages search functionality and search history
 class SearchViewModel {
     var searchResults: Observable<[MediaItem]> = Observable([])
     var error: Observable<Bool> = Observable(false)
@@ -15,6 +17,7 @@ class SearchViewModel {
         return userDefaults.array(forKey: "SearchHistory") as? [String] ?? []
     }
     
+    /// Performs a search with the given query
     func performSearch(_ query: String? = nil) {
         if let query = query {
             saveToHistory(query)
@@ -31,6 +34,7 @@ class SearchViewModel {
         }
     }
     
+    /// Saves search queries to history
     private func saveToHistory(_ query: String) {
         var history = searchHistory
         if history.count > 5 { history.removeLast() }

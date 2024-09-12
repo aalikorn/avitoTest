@@ -43,6 +43,7 @@ class MediaItemCollectionViewCell: UICollectionViewCell {
         imageView.layer.masksToBounds = true
     }
     
+    /// Updates constraints based on the layout type (grid or list).
     func updateConstraintsForLayout(_ layoutType: LayoutType) {
         NSLayoutConstraint.deactivate(imageView.constraints)
         NSLayoutConstraint.deactivate(descriptionLabel.constraints)
@@ -85,7 +86,7 @@ class MediaItemCollectionViewCell: UICollectionViewCell {
         }
     }
 
-    
+    /// Prepares the cell for reuse by resetting its content and constraints.
     override func prepareForReuse() {
         super.prepareForReuse()
         imageView.image = nil

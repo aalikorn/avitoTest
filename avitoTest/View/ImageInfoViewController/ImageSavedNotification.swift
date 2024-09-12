@@ -8,6 +8,7 @@
 import UIKit
 
 extension ImageInfoViewController {
+    /// Configures the notification view that will display save success/failure messages.
     func configureNotificationView() {
         contentView.addSubview(notificationView)
         notificationView.translatesAutoresizingMaskIntoConstraints = false
@@ -24,6 +25,7 @@ extension ImageInfoViewController {
         notificationView.alpha = 0
     }
     
+    /// Configures the label inside the notification view.
     func configureNotficationLabel() {
         notificationView.addSubview(notificationLabel)
         notificationLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -37,6 +39,7 @@ extension ImageInfoViewController {
         notificationLabel.textAlignment = .center
     }
     
+    /// Shows the notification with a message based on the result of saving the image.
     func showNotification(_ result: ImageSaveResult) {
         switch result {
         case .failure: notificationLabel.text = "Пожалуйста, разрешите приложению доступ к галерее в настройках"

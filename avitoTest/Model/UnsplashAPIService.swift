@@ -8,8 +8,13 @@
 import Foundation
 
 class UnsplashAPIService {
+    // Singleton instance of UnsplashAPIService
     static let shared = UnsplashAPIService()
     
+    /// Performs a search request or fetches random photos from Unsplash.
+        /// - Parameters:
+        ///   - query: Optional search query. If provided, searches for photos matching the query.
+        ///   - complition: Completion handler called with a result containing either an array of `MediaItem` or an error.
     func search(query: String? = nil, complition: @escaping (Result<[MediaItem], Error>) -> Void) {
         let ACCESS_KEY = APIKey
         

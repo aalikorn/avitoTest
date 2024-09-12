@@ -7,12 +7,15 @@
 
 import UIKit
 
+
+/// Enum to represent the result of saving an image
 enum ImageSaveResult {
     case success
     case failure
 }
 
 extension ImageInfoViewController {
+    /// Configures the share button's layout and appearance, and adds a target action.
     func configureShareButton() {
         blueSubview.addSubview(shareButton)
         shareButton.translatesAutoresizingMaskIntoConstraints = false
@@ -31,6 +34,7 @@ extension ImageInfoViewController {
         shareButton.addTarget(self, action: #selector(shareButtonAction), for: .touchUpInside)
     }
     
+    /// Configures the save button's layout and appearance, and adds a target action.
     func configureSaveButton() {
         blueSubview.addSubview(saveButton)
         saveButton.translatesAutoresizingMaskIntoConstraints = false
@@ -49,6 +53,7 @@ extension ImageInfoViewController {
         saveButton.addTarget(self, action: #selector(saveButtonAction), for: .touchUpInside)
     }
     
+    /// Configures the `blueSubview` that contains the share and save buttons.
     func configureBleuSubview() {
         contentView.addSubview(blueSubview)
         blueSubview.translatesAutoresizingMaskIntoConstraints = false
@@ -64,6 +69,7 @@ extension ImageInfoViewController {
         blueSubview.layer.cornerRadius = 10
     }
     
+    /// Handles the share button action, opening the share sheet to share the image.
     @objc func shareButtonAction() {
         guard let image = imageView.image else {
             print("Изображение не найдено")
@@ -74,6 +80,7 @@ extension ImageInfoViewController {
         self.present(activityViewController, animated: true, completion: nil)
     }
     
+    /// Handles the save button action, saving the image to the user's photo library.
     @objc func saveButtonAction() {
         guard let image = imageView.image else {
             print("Изображение не найдено")
@@ -83,6 +90,7 @@ extension ImageInfoViewController {
         UIImageWriteToSavedPhotosAlbum(image, self, #selector(image(_:didFinishSavingWithError:contextInfo:)), nil)
     }
     
+    /// Called when the image has finished saving, and shows a notification of success or failure.
     @objc func image(_ image: UIImage, didFinishSavingWithError error: NSError?, contextInfo: UnsafeRawPointer) {
         if let error = error {
             showNotification(.failure)

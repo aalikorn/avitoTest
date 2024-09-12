@@ -7,6 +7,8 @@
 
 import UIKit
 
+// MARK: ImageCacheManager class
+// Cache manager to keep images in cache
 class ImageCacheManager {
     static let shared = ImageCacheManager()
     

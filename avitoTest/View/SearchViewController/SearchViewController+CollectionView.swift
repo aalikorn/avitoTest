@@ -10,6 +10,8 @@ import UIKit
 
 
 extension SearchViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+    
+    /// Configures and sets up the collection view with layout and constraints.
     func configureCollectionView() {
         let layout = UICollectionViewFlowLayout()
            layout.minimumLineSpacing = 10
@@ -29,6 +31,8 @@ extension SearchViewController: UICollectionViewDelegate, UICollectionViewDataSo
            ])
         imagesCollectionView.register(MediaItemCollectionViewCell.self, forCellWithReuseIdentifier: "MediaItemCell")
     }
+            
+    // MARK: - UICollectionViewDataSource
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return searchViewModel.searchResults.value.count
@@ -66,6 +70,8 @@ extension SearchViewController: UICollectionViewDelegate, UICollectionViewDataSo
            return cell
        }
     
+    // MARK: - UICollectionViewDelegateFlowLayout
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let spacing: CGFloat = 10
         switch (layoutType) {
@@ -91,6 +97,8 @@ extension SearchViewController: UICollectionViewDelegate, UICollectionViewDataSo
         imageInfoViewController.imageDescription = item.description
         navigationController?.pushViewController(imageInfoViewController, animated: true)
     }
+    
+    // MARK: - Error and No Results Labels
     
     func configureErrorLabels() {
         view.addSubview(errorLabel)
@@ -120,6 +128,8 @@ extension SearchViewController: UICollectionViewDelegate, UICollectionViewDataSo
         noResultsLabel.textAlignment = .center
     }
     
+    /// Updates the UI based on search results.
+        /// - Parameter results: The array of media items to display.
     func updateUI(with results: [MediaItem]) {
         if results.isEmpty {
             if !isLoading {

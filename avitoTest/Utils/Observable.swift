@@ -7,6 +7,8 @@
 
 import Foundation
 
+// MARK: Observable Class
+// Wrapper over the object to track changes of its value
 class Observable<T> {
     
     init (_ value: T) {
