@@ -66,8 +66,12 @@ class ImageInfoViewController: UIViewController {
                             }
                         }
                     }
+                } else {
+                    showAlertError()
                 }
             }
+        } else {
+            showAlertError()
         }
     }
     
@@ -89,6 +93,14 @@ class ImageInfoViewController: UIViewController {
         authorLabel.translatesAutoresizingMaskIntoConstraints = false
         authorLabel.text = author?.username
         authorLabel.font = .systemFont(ofSize: 15)
+    }
+    
+    func showAlertError() {
+        let alert = UIAlertController(title: "Возникла ошибка :(", message: nil, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "ОК", style: .default, handler: { [weak self] _ in
+            self?.navigationController?.popViewController(animated: true)
+        }))
+        present(alert, animated: true, completion: nil)
     }
     
     func setupViews() {
