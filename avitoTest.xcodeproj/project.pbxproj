@@ -20,6 +20,7 @@
 		BC35B7FF2C906643007BB09A /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC35B7FE2C906643007BB09A /* SearchViewController.swift */; };
 		BC35B8012C90667A007BB09A /* SearchViewController+SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC35B8002C90667A007BB09A /* SearchViewController+SearchBar.swift */; };
 		BC35B8032C9066B8007BB09A /* SearchViewController+CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC35B8022C9066B8007BB09A /* SearchViewController+CollectionView.swift */; };
+		BC4FFC622C93749E005C0CD5 /* APIKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC4FFC612C93749E005C0CD5 /* APIKey.swift */; };
 		BCBE563B2C92060A0053BF9B /* ImageInfoViewController+ShareSaveButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCBE563A2C92060A0053BF9B /* ImageInfoViewController+ShareSaveButton.swift */; };
 		BCBE563D2C9206910053BF9B /* ImageSavedNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCBE563C2C9206910053BF9B /* ImageSavedNotification.swift */; };
 		BCBE56432C9312400053BF9B /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BCBE56422C9312400053BF9B /* Launch Screen.storyboard */; };
@@ -42,6 +43,7 @@
 		BC35B7FE2C906643007BB09A /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		BC35B8002C90667A007BB09A /* SearchViewController+SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SearchViewController+SearchBar.swift"; sourceTree = "<group>"; };
 		BC35B8022C9066B8007BB09A /* SearchViewController+CollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SearchViewController+CollectionView.swift"; sourceTree = "<group>"; };
+		BC4FFC612C93749E005C0CD5 /* APIKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKey.swift; sourceTree = "<group>"; };
 		BCBE563A2C92060A0053BF9B /* ImageInfoViewController+ShareSaveButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ImageInfoViewController+ShareSaveButton.swift"; sourceTree = "<group>"; };
 		BCBE563C2C9206910053BF9B /* ImageSavedNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSavedNotification.swift; sourceTree = "<group>"; };
 		BCBE56422C9312400053BF9B /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
@@ -122,6 +124,7 @@
 			children = (
 				BC35B7F42C8D8947007BB09A /* Observable.swift */,
 				BC35B7F92C9044B6007BB09A /* ImageCacheManager.swift */,
+				BC4FFC612C93749E005C0CD5 /* APIKey.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -222,6 +225,7 @@
 				BC35B7F02C8C64A5007BB09A /* UnsplashAPIService.swift in Sources */,
 				BC35B7FC2C905E95007BB09A /* ImageInfoViewController.swift in Sources */,
 				BC35B7FA2C9044B6007BB09A /* ImageCacheManager.swift in Sources */,
+				BC4FFC622C93749E005C0CD5 /* APIKey.swift in Sources */,
 				BC35B7F52C8D8947007BB09A /* Observable.swift in Sources */,
 				BC35B7EE2C8C6096007BB09A /* UnsplashModel.swift in Sources */,
 				BCBE6DBE2C9096AE001E2770 /* SearchViewControler+SearchHistory.swift in Sources */,

@@ -11,7 +11,7 @@ class UnsplashAPIService {
     static let shared = UnsplashAPIService()
     
     func search(query: String? = nil, complition: @escaping (Result<[MediaItem], Error>) -> Void) {
-        let ACCESS_KEY = "qhH2W-AohX_EzWkeilQTB16kAtsFvIQZZOlomYS_-gI"
+        let ACCESS_KEY = APIKey
         
         var url: URL
         
