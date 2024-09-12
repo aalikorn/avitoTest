@@ -154,6 +154,7 @@ extension SearchViewController: UICollectionViewDelegate, UICollectionViewDataSo
             self.noResultsLabel.isHidden = true
             self.errorLabel.isHidden = false
             self.imagesCollectionView.isHidden = true
+            self.loadingLabel.isHidden = true
         }
     }
     
