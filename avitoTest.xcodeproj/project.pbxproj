@@ -22,7 +22,7 @@
 		BC35B8032C9066B8007BB09A /* SearchViewController+CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC35B8022C9066B8007BB09A /* SearchViewController+CollectionView.swift */; };
 		BCBE563B2C92060A0053BF9B /* ImageInfoViewController+ShareSaveButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCBE563A2C92060A0053BF9B /* ImageInfoViewController+ShareSaveButton.swift */; };
 		BCBE563D2C9206910053BF9B /* ImageSavedNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCBE563C2C9206910053BF9B /* ImageSavedNotification.swift */; };
-		BCBE563F2C9302B60053BF9B /* LaunchScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCBE563E2C9302B60053BF9B /* LaunchScreenViewController.swift */; };
+		BCBE56432C9312400053BF9B /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BCBE56422C9312400053BF9B /* Launch Screen.storyboard */; };
 		BCBE6DBE2C9096AE001E2770 /* SearchViewControler+SearchHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCBE6DBD2C9096AE001E2770 /* SearchViewControler+SearchHistory.swift */; };
 /* End PBXBuildFile section */
 
@@ -44,7 +44,7 @@
 		BC35B8022C9066B8007BB09A /* SearchViewController+CollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SearchViewController+CollectionView.swift"; sourceTree = "<group>"; };
 		BCBE563A2C92060A0053BF9B /* ImageInfoViewController+ShareSaveButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ImageInfoViewController+ShareSaveButton.swift"; sourceTree = "<group>"; };
 		BCBE563C2C9206910053BF9B /* ImageSavedNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSavedNotification.swift; sourceTree = "<group>"; };
-		BCBE563E2C9302B60053BF9B /* LaunchScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenViewController.swift; sourceTree = "<group>"; };
+		BCBE56422C9312400053BF9B /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		BCBE6DBD2C9096AE001E2770 /* SearchViewControler+SearchHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SearchViewControler+SearchHistory.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -86,6 +86,7 @@
 				BC35B7D82C8C5D42007BB09A /* SceneDelegate.swift */,
 				BC35B7DF2C8C5D43007BB09A /* Assets.xcassets */,
 				BC35B7E42C8C5D43007BB09A /* Info.plist */,
+				BCBE56422C9312400053BF9B /* Launch Screen.storyboard */,
 			);
 			path = avitoTest;
 			sourceTree = "<group>";
@@ -104,7 +105,6 @@
 			children = (
 				BC35B8042C90679B007BB09A /* ImageInfoViewController */,
 				BC35B7FD2C906251007BB09A /* SearchViewController */,
-				BCBE563E2C9302B60053BF9B /* LaunchScreenViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -206,6 +206,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BCBE56432C9312400053BF9B /* Launch Screen.storyboard in Resources */,
 				BC35B7E02C8C5D43007BB09A /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -227,7 +228,6 @@
 				BC35B7FF2C906643007BB09A /* SearchViewController.swift in Sources */,
 				BC35B7D72C8C5D42007BB09A /* AppDelegate.swift in Sources */,
 				BCBE563B2C92060A0053BF9B /* ImageInfoViewController+ShareSaveButton.swift in Sources */,
-				BCBE563F2C9302B60053BF9B /* LaunchScreenViewController.swift in Sources */,
 				BC35B7F72C8DA287007BB09A /* MediaItemCollectionViewCell.swift in Sources */,
 				BCBE563D2C9206910053BF9B /* ImageSavedNotification.swift in Sources */,
 				BC35B8032C9066B8007BB09A /* SearchViewController+CollectionView.swift in Sources */,
@@ -369,7 +369,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = avitoTest/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -396,7 +396,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = avitoTest/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
