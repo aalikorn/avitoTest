@@ -21,6 +21,7 @@ cd avitoTest
 open media-search-app.xcodeproj
 ```
 3. **Вставьте свой API ключ**
+
 Откройте файл avitoTest/Utils/APIKey и поменяйте значение перемнной APIKey на строку с вашим ключом.
 
 ### Запуск
