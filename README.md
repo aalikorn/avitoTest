@@ -23,7 +23,7 @@ git clone https://gitverse.ru/aalikorn/avitoTest.git
 2. **Перейдите в папку с проектом и откройте файл .xcodeproj в Xcode**:
 ```bash
 cd avitoTest
-open media-search-app.xcodeproj
+open avitoTest.xcodeproj
 ```
 3. **Вставьте свой API ключ**
 
